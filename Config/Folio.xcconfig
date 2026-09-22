@@ -1,0 +1,4 @@
+GMAIL_CLIENT_ID =
+DEVELOPMENT_TEAM =
+#include? "Local.xcconfig"
+GMAIL_CALLBACK_SCHEME = com.googleusercontent.apps.$(GMAIL_CLIENT_ID:base:base:base)

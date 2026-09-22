@@ -1,0 +1,12 @@
+.build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+.DS_Store
+Config/Local.xcconfig
+
+# Local agent tooling
+.mcp.json
+.agents/
+.claude/
+skills-lock.json

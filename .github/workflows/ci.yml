@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Test and build
+    # macOS 27 with Xcode 27 (public preview image); the project targets macOS 27.
+    runs-on: xcode-27
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Show toolchain
+        run: |
+          sw_vers
+          xcodebuild -version
+          swift --version
+
+      - name: Run package tests
+        working-directory: Packages
+        run: swift test
+
+      - name: Build app
+        run: >
+          xcodebuild -scheme Folio -destination 'platform=macOS' build
+          CODE_SIGNING_ALLOWED=NO
