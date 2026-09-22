@@ -2,6 +2,8 @@
 
 A native macOS email client written in Swift. Mail syncs into a local SQLite database, and the app reads from that database, so browsing and search work offline.
 
+![Folio showing the Attention inbox in dark mode](docs/image.png)
+
 ## Features
 
 - Gmail, Fastmail (JMAP), and generic IMAP/SMTP accounts, plus a local demo account that needs no sign-in
